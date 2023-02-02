@@ -25,11 +25,6 @@ jobs:
     environment: production
 
     steps:
-    - id: 'dockersetup'
-      name: 'docker login'
-      run: |-
-         docker login -u _json_key -p "`cat ${{ secrets.GKE_SA_KEY }}`" https://gcr.io
-
     - name: Checkout
       uses: actions/checkout@v3
 
