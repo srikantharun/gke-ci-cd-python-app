@@ -50,6 +50,7 @@ jobs:
     # Build the Docker image
     - name: Build
       run: |-
+        gcloud config set project $PROJECT_ID
         docker build \
           --tag "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
@@ -59,6 +60,7 @@ jobs:
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |-
+        gcloud config set project $PROJECT_ID
         docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
 
     # Set up kustomize
