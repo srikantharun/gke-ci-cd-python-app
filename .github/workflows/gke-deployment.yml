@@ -25,13 +25,6 @@ jobs:
     environment: production
 
     steps:
-    - id: 'auth'
-      name: 'Authenticate to GCP'
-      uses: 'google-github-actions/auth@v1'
-      with:
-          workload_identity_provider: 'projects/1044325156148/locations/global/workloadIdentityPools/scopeit/providers/demo-pool'
-          service_account: 'service-trial1@hidden-phalanx-375513.iam.gserviceaccount.com'
-
     - id: 'dockersetup'
       name: 'docker login'
       run: |-
